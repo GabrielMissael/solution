@@ -1,5 +1,5 @@
 import tweepy
-from help_functions import filter_tweet
+from .help_functions import filter_tweet
 
 def search_tweets(api, words, geocode, user_key_names, limit=20, query=None,
 					key_names=['text', 'created_at', 'retweet_count', 'favorite_count']):
