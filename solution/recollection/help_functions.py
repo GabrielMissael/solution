@@ -63,3 +63,10 @@ def create_json_file(data, file):
     # Open and write the data in a json format
     with open(file, 'w', encoding='utf-8') as json_file:
         json_file.write(json.dumps(data, ensure_ascii=False, indent=4))
+
+def percent_encoding(string):
+    result = ''
+    accepted = [c for c in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._~'.encode('utf-8')]
+    for char in string.encode('utf-8'):
+        result += chr(char) if char in accepted else '%{}'.format(hex(char)[2:]).upper()
+    return result

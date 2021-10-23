@@ -1,8 +1,12 @@
-from .modules.config import twitter_config
-from .modules.api_functions import  search_tweets
-from .modules.help_functions import create_json_file
+from .config import twitter_config
+from .api_functions import  search_tweets
+from .help_functions import create_json_file, percent_encoding
 
 def pipeline(key, words):
+
+	# Create query
+	words = [percent_encoding(x) for x in words.split(', ')]
+
 	# Set up our api
 	twitter_api = twitter_config()
 
