@@ -17,7 +17,6 @@ def search_tweets(api, words, geocode, user_key_names, limit=20, query=None,
 	while True:
 		try:
 			if len(tweets) >= limit:
-				print("Done!")
 				break
 			tweet = c.next()
 			tweet_id, tweet_content = filter_tweet(tweet, key_names, user_key_names, words)

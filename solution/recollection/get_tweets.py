@@ -57,10 +57,10 @@ def pipeline(key, words, limit = 4000):
 		# Create json file
 		file = f'./data/{country}/{key}/tweets.json'
 
-		create_json_file(tweets, file)
+		create_json_file(all_tweets, file)
 
 		# Print the total
-		print(len(tweets), ' Tweets collected')
+		print(len(all_tweets), ' Tweets collected')
 		print("-------------------------------")
 
 def get_tweets(n = 4000):
