@@ -44,7 +44,7 @@ def pipeline(key, words, limit = 4000):
 				twitter_api,
 				words = words,
 				geocode = geocodes[country],
-				limit = limit,
+				limit = 100,
 				key_names = key_names,
 				user_key_names = user_key_names
 			)
