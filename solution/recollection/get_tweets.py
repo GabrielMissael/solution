@@ -36,20 +36,14 @@ def pipeline(key, words, limit = 4000):
 	for country in geocodes:
 		print(f"Extracting from {country}...")
 
-		aux = limit//100
-		all_tweets = {}
-
-		for _ in range(aux):
-			tweets = search_tweets(
-				twitter_api,
-				words = words,
-				geocode = geocodes[country],
-				limit = 100,
-				key_names = key_names,
-				user_key_names = user_key_names
-			)
-
-			all_tweets = {**all_tweets, **tweets}
+		tweets = search_tweets(
+			twitter_api,
+			words = words,
+			geocode = geocodes[country],
+			limit = limit,
+			key_names = key_names,
+			user_key_names = user_key_names
+		)
 
 		if not os.path.exists(f'./data/{country}/{key}'):
   			os.makedirs(f'./data/{country}/{key}')
@@ -57,10 +51,10 @@ def pipeline(key, words, limit = 4000):
 		# Create json file
 		file = f'./data/{country}/{key}/tweets.json'
 
-		create_json_file(all_tweets, file)
+		create_json_file(tweets, file)
 
 		# Print the total
-		print(len(all_tweets), ' Tweets collected')
+		print(len(tweets), ' Tweets collected')
 		print("-------------------------------")
 
 def get_tweets(n = 4000):
