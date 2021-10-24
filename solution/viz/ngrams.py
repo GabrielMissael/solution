@@ -10,9 +10,9 @@ import numpy as np
 import sys
 
 #Es la unica manera que encontré de hacer que jalara, feel free to change
-sys.path.append("/home/zaiddeanda/github/solution/solution/viz/")
+# sys.path.append("/home/zaiddeanda/github/solution/solution/viz/")
 
-from clean_words import clean_words
+from .clean_words import clean_words
 
 def ngram(text_dataframe:pd.DataFrame, n, impath):
     #Recibe un texto traducido y limpio

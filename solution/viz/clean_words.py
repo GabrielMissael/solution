@@ -12,7 +12,7 @@ def clean_words(text_DataFrame:pd.DataFrame):
     """
     text = ''.join(str(text_DataFrame['text'].tolist()))
     wnl = nltk.stem.WordNetLemmatizer()
-    stopwords = nltk.corpus.stopwords.words('english')
+    stopwords = nltk.corpus.stopwords.words('spanish')
     text = (unicodedata.normalize('NFKD', text)
     .encode('ascii', 'ignore')
     .decode('utf-8', 'ignore')
