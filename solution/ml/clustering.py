@@ -2,8 +2,7 @@ import pandas as pd  # Working with the data
 import numpy as np
 import json
 
-import plotly.express as px  # Interactive plots
-import plotly
+
 
 import sentence_transformers  # NLP Embeddings
 import umap  # Dimensionality reduction.

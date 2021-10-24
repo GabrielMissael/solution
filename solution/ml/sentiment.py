@@ -7,8 +7,8 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 def deEmojify(text):
     return emoji.get_emoji_regexp().sub(r'', text)
 
-def main():
-    df = pd.read_pickle('data/embs.pkl')
+def AddSentimentAnalysis(tweet_df_route:str):
+    df = pd.DataFrame(tweet_df_route)
 
     df = df[df['labels'] != -1]
 
@@ -26,14 +26,10 @@ def main():
     sentiment = SentimentIntensityAnalyzer()
 
     sentiment_list=[]
-    for tweet in clean_tweets:
+    for i, tweet in enumerate(clean_tweets):
         tweet = deEmojify(tweet)
-        tweet = translator.translate(tweet, src='es', dest='en').text
         sentiment_dict = sentiment.polarity_scores(tweet)
         sentiment_list.append(sentiment_dict['compound'])
+    df['Sentiment'] = sentiment_list
 
-    df['sentiment'] = sentiment_list
     return df
-
-if __name__=='__main__':
-    main()

@@ -1,5 +1,9 @@
-def scatter(df_plot, impath):
+import plotly.express as px  # Interactive plots
+import plotly
+import numpy as np
 
+def scatter(df_plot, impath):
+    #Recibe un dataframe con el formato de la función de cluster
     # Labels to stirngs
     df_plot['labels'] = df_plot['labels'].astype('str')
 
