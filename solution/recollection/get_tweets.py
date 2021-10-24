@@ -61,23 +61,13 @@ def get_tweets(n = 4000):
 
 	# Define key words for query search
     words = {
-        'salud_financiera': 'ahorro, dinero, "tarjeta de crédito", hipoteca, sueldo, salario',
+		'excelencia_operativa': 'BBVA, Bancomer',
+
+		'salud_financiera': 'ahorro, dinero, "tarjeta de crédito", hipoteca, sueldo, salario',
 
         'futuro_sostenible': 'contaminación, cambio climático, calentamiento global, sostenible, ecológico',
 
         'excelencia_operativa': 'BBVA, Bancomer',
-    }
-
-    banks = {
-        'México': 'Banorte, Citibanamex, Santander, HSBC, Scotiabank',
-
-        'Colombia': 'Bancolombia, "Banco de Bogotá", Davivienda, Banco W',
-
-        'España': 'Santander, CaixaBank, Bankia, "Banco de Sabadell", Bankinter',
-
-        'Perú': '"Banco de crédito del Perú", Scotiabank, Interbank, "Banco Falabella", "Banco de comercio"',
-
-        'Argentina': '"Banco de la nación argentina", "Banco de la provincia de Buenos Aires", Santander, "Banco de Galicia y Buenos Aires", "Banco Macro"',
     }
 
     for key in words:
