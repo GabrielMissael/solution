@@ -35,14 +35,21 @@ def pipeline(key, words, limit = 4000):
 	# Search tweets with specifics for each country
 	for country in geocodes:
 		print(f"Extracting from {country}...")
-		tweets = search_tweets(
-			twitter_api,
-			words = words,
-			geocode = geocodes[country],
-			limit = limit,
-			key_names = key_names,
-			user_key_names = user_key_names
-		)
+
+		aux = limit//100
+		all_tweets = {}
+
+		for _ in range(aux):
+			tweets = search_tweets(
+				twitter_api,
+				words = words,
+				geocode = geocodes[country],
+				limit = limit,
+				key_names = key_names,
+				user_key_names = user_key_names
+			)
+
+			all_tweets = {**all_tweets, **tweets}
 
 		if not os.path.exists(f'./data/{country}/{key}'):
   			os.makedirs(f'./data/{country}/{key}')
