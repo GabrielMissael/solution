@@ -32,6 +32,8 @@ def main():
         sentiment_dict = sentiment.polarity_scores(tweet)
         sentiment_list.append(sentiment_dict['compound'])
 
+    df['sentiment'] = sentiment_list
+    return df
 
 if __name__=='__main__':
     main()
